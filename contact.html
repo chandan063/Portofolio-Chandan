@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="icon" href="3d-contact.png" type="image/x-icon">
+<style>
+body {
+    font-family: Arial, sans-serif;
+    /* background-color: #f0f0f0; */
+    background-image: url("milad-fakurian-E8Ufcyxz514-unsplash.jpg");
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#responseMessage {
+    margin-top: 10px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+
+</style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>Contact Me</h1>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="number" id="phone" placeholder="Your Number" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+
+
+
+    <!--  script written  -->
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    // Simple validation
+    if (!name || !email || !message) {
+        displayResponseMessage("Please fill in all fields.", false);
+        return;
+    }
+
+   
+
+    // Assuming the form is valid, you can send the data to your server or perform any other actions here
+    // For this example, we'll just display a success message
+    displayResponseMessage("Message sent successfully!! I Will Response you soon", true);
+
+    // Clear the form after submission
+    document.getElementById("contactForm").reset();
+});
+
+function displayResponseMessage(message, isSuccess) {
+    const responseMessage = document.getElementById("responseMessage");
+    responseMessage.textContent = message;
+    responseMessage.style.color = isSuccess ? "#4CAF50" : "#FF0000";
+}
+
+    </script>
+</body>
+</html>
